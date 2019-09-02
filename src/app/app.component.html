@@ -1,0 +1,27 @@
+<div class="container chat-app">
+  <div class="row">
+    <div class="col-sm-12 chat-header">Chat Bot</div>
+    <div class="col-sm-12 chat-body">
+      <form *ngIf="userLoggedIn" (submit)="sendMessage(chatMessage)">
+        <div class="chat-window">
+          <div class="chat-text-area">
+            <div *ngFor="let chat of chatData">
+              <div [ngClass]="{'sender-side': chat.userId === loggedInUser,
+           'reciever-side': chat.userId !== loggedInUser}"><span>{{chat.message}}</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 chat-footer">
+          <input class="col-sm-10" name="messageField" type="text" [(ngModel)]="chatMessage" autocomplete="off" />
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
+      <div *ngIf="!userLoggedIn">
+        <span>Enter User Id</span>
+        <input type="text" name="userIdField" [(ngModel)]="userIdLogged" autocomplete="off" />
+        <button type="submit" class="btn btn-primary" 
+        (click)="logIn(userIdLogged)">Let's Go</button>
+      </div>
+    </div>
+  </div>
+</div>
