@@ -18,7 +18,11 @@ export class ChatService {
     }
 
     addMessages(messages: any, userId: number) {
-        this.socket.emit('addMessage', messages, userId);
+        let dataSet = {
+            id: userId,
+            message: messages
+        }
+        this.socket.emit('addMessage', dataSet);
     }
 }
 
