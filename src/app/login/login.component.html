@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="validateUser(loginForm.value)">
+    <div>
+      <label>
+        Login:
+        <input type="text" autocomplete="off" formControlName="username" required />
+      </label>
+    </div>
+    <div>
+      <label>
+        Password:
+        <input type="password" autocomplete="off" formControlName="password" required />
+      </label>
+    </div>
+    <div>
+      <button class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+    </div>
+  </form>
+</div>

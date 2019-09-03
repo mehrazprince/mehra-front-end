@@ -1,0 +1,21 @@
+<a *ngIf="isSuperAdmin" routerLink="/user/new" class="btn btn-primary">Add User</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Age</th>
+      <th scope="col">Group Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of usersList">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.birthdate }}</td>
+      <td>{{ user.age }}</td>
+      <td><input type="checkbox" disabled="true" [checked]="user.groupadmin" /></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,43 @@
+<div>
+  <form [formGroup]="createForm" (ngSubmit)="createUser(createForm.value)">
+    <div>
+      <label>
+        User Name:
+        <input type="text" autocomplete="off" formControlName="username" required />
+      </label>
+    </div>
+    <div>
+      <label>
+        Password:
+        <input type="password" autocomplete="off" formControlName="password" required />
+      </label>
+    </div>
+    <div>
+      <label>
+        Date of Birth:
+        <input type="text" autocomplete="off" formControlName="birthdate" required />
+      </label>
+    </div>
+    <div>
+      <label>
+        Email:
+        <input type="email" autocomplete="off" formControlName="email" required />
+      </label>
+    </div>
+    <div>
+      <label>
+        Age:
+        <input type="number" autocomplete="off" formControlName="age" required />
+      </label>
+    </div>
+    <div>
+      <label>
+        Group Admin:
+        <input type="checkbox" autocomplete="off" formControlName="groupadmin" />
+      </label>
+    </div>
+    <div>
+      <button class="btn btn-primary" [disabled]="!createForm.valid">Create User</button>
+    </div>
+  </form>
+</div>
