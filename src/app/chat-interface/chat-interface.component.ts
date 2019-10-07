@@ -30,13 +30,15 @@ export class ChatInterfaceComponent implements OnInit {
   }
 
   sendMessage(message: string) {
-    this.chatService.addMessages(message, this.loggedInUser);
-    this.chatMessage = '';
-    this.chatService.getMessages();
+    if (message != undefined && message !== '') {
+      this.chatService.addMessages(message, this.loggedInUser);
+      this.chatMessage = '';
+      this.chatService.getMessages();
+    }
   }
 
   logIn(user) {
-    this.loggedInUser = parseInt(user); 
+    this.loggedInUser = parseInt(user);
     this.userLoggedIn = true;
   }
 }

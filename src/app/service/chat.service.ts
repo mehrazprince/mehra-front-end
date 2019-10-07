@@ -17,12 +17,12 @@ export class ChatService {
         this.socket.emit('getMessages');
     }
 
-    addMessages(messages: any, userId: number) {
-        let dataSet = {
-            id: userId,
-            message: messages
-        }
-        this.socket.emit('addMessage', dataSet);
+    addMessages(message: any, userId: number) {
+        // let dataSet = {
+        //     id: userId,
+        //     message: messages
+        // }
+        this.socket.emit('addMessage', { message, userId });
     }
 }
 
